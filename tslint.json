@@ -120,13 +120,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "pko",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "pko",
       "kebab-case"
     ],
     "no-output-on-prefix": true,
