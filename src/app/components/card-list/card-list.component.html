@@ -1,0 +1,10 @@
+<mat-grid-list [cols]="cardColumns" rowHeight="450px" gutterSize="6px">
+  <mat-grid-tile *ngFor="let card of cards">
+    <mat-card>
+      <img mat-card-image [src]="card.image_url" [alt]="card.name">
+      <mat-card-content>
+        Rarity: {{card.rarity}}
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
