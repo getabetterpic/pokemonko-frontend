@@ -14,7 +14,7 @@ describe('CardService', () => {
   const fakeCards: Card[] = [
     {
       id: '1', name: 'Glaceon-EX', image_url: '', image_url_hi_res: '', subtype: '', supertype: '', number: '',
-      artist: '', rarity: '', series: '', set_code: '', types: ['']
+      artist: '', rarity: '', series: '', set_code: '', types: [''], set_name: ''
     }
   ];
 
@@ -33,11 +33,11 @@ describe('CardService', () => {
 
   describe('#search', () => {
     it('searches for cards', fakeAsync(inject([CardService], (service: CardService) => {
-      service.search(Observable.of('test')).subscribe((cards) => {
-        expect(cards).toEqual(fakeCards);
+      service.search('test', '1').subscribe((resp) => {
+        expect(resp.cards).toEqual(fakeCards);
       });
       tick(300);
-      const req = httpMock.expectOne('/cards/search?name=test');
+      const req = httpMock.expectOne('/cards/search?name=test&page=1');
       req.flush({ cards: fakeCards });
 
       httpMock.verify();

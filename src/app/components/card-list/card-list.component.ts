@@ -55,9 +55,7 @@ export class CardListComponent implements OnInit, OnDestroy {
     this.webSubscription = this.breakpointObserver.observe([
       Breakpoints.Web
     ]).subscribe((results) => {
-      if (results.matches) {
-        this.cardColumns = 3;
-      }
+      if (results.matches) { this.cardColumns = 4; }
     });
   }
 }
