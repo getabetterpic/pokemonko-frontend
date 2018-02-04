@@ -3,8 +3,15 @@
     <mat-card>
       <img mat-card-image [src]="card.image_url" [alt]="card.name">
       <mat-card-content>
-        Rarity: {{card.rarity}}
+        Rarity: {{card.rarity}}<br />
+        Set: {{card.set_name}}
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+<mat-paginator [pageSizeOptions]="[]"
+               [length]="totalCards"
+               [pageIndex]="page"
+               [pageSize]="20"
+               (page)="pageChange.emit($event)">
+</mat-paginator>

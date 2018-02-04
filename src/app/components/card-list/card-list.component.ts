@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, OnDestroy, Output } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Card } from '../../models/card.model';
@@ -11,6 +11,9 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CardListComponent implements OnInit, OnDestroy {
   @Input() public cards: Card[];
+  @Input() public totalCards: number;
+  @Input() public page: number;
+  @Output() public pageChange = new EventEmitter<number>();
 
   public cardColumns = 1;
   private handsetAndTabletPortraitSubscription: Subscription;

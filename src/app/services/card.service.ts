@@ -17,18 +17,11 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-  public search(searchTerm: Observable<string>): Observable<Card[]> {
-    return searchTerm
-      .filter((term) => term && term.length > 0)
-      .debounceTime(300)
-      .distinctUntilChanged()
-      .switchMap((term) => this.searchCards(term));
-  }
-
-  private searchCards(term: string): Observable<Card[]> {
-    return this.http.get('/cards/search', { params: { name: term } })
-      .map((resp: { cards: Card[] }) => {
-        return resp.cards;
+  public search(term: string, page: string): Observable<{ cards: Card[], totalCards: number }> {
+    return this.http
+      .get<{ cards: Card[], total_cards: number }>('/cards/search', { params: { name: term, page: page } })
+      .map((results) => {
+        return { cards: results.cards, totalCards: results.total_cards };
       });
   }
 }

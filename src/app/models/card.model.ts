@@ -23,6 +23,7 @@ export class Card implements ICard {
   public weaknesses?: object[];
   public resistances?: object[];
   public evolves_from?: string;
+  public set_name: string;
 
   constructor(card: ICard) {
     this.id = card.id;
@@ -47,5 +48,6 @@ export class Card implements ICard {
     this.weaknesses = card.weaknesses;
     this.resistances = card.resistances;
     this.evolves_from = card.evolves_from;
+    this.set_name = card.set_name;
   }
 }

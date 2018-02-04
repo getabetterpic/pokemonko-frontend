@@ -13,14 +13,39 @@ import { Card } from '../../models/card.model';
 export class SearchFormComponent implements OnInit {
   public searchTerm$ = new Subject<string>();
   public cards: Card[];
+  public totalCards: number;
+
+  private term: string;
+  private page = '1';
 
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
-    this.cardService.search(this.searchTerm$)
-      .subscribe((cards: Card[]) => {
-        this.cards = cards;
+    this.searchTerm$
+      .filter((term) => term && term.length > 0)
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap((term) => {
+        this.page = '1';
+        this.term = term;
+        return this.cardService.search(term, this.page);
+      })
+      .subscribe((results) => {
+        this.cards = results.cards;
+        this.totalCards = results.totalCards;
       });
   }
 
+  public pageChange($event): void {
+    this.page = $event.pageIndex + 1;
+    this.cardService.search(this.term, this.page.toString())
+      .subscribe((results) => {
+        this.cards = results.cards;
+        this.totalCards = results.totalCards;
+      });
+  }
+
+  public pageAsNumber(): number {
+    return parseInt(this.page, 10);
+  }
 }

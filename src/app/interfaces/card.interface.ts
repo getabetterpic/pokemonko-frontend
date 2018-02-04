@@ -21,4 +21,5 @@ export interface ICard {
   weaknesses?: object[];
   resistances?: object[];
   evolves_from?: string;
+  set_name: string;
 }
