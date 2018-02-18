@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { AllMaterialModule } from '../all-material/all-material.module';
@@ -13,7 +14,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
   imports: [
     CommonModule,
     AllMaterialModule,
-    ComponentsRoutingModule
+    ComponentsRoutingModule,
+    FormsModule
   ],
   declarations: [
     NavbarComponent,

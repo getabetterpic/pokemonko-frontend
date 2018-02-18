@@ -27,7 +27,7 @@ const pkoRoutes: Routes = [
     AllMaterialModule,
     ServicesModule,
     ComponentsModule,
-    RouterModule.forRoot(pkoRoutes, { enableTracing: true })
+    RouterModule.forRoot(pkoRoutes)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiV1Interceptor, multi: true }
