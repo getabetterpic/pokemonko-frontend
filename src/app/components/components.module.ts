@@ -9,6 +9,7 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 
 import { CardListComponent } from './card-list/card-list.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
   declarations: [
     NavbarComponent,
     SearchFormComponent,
-    CardListComponent
+    CardListComponent,
+    CallbackComponent
   ],
   exports: [
     NavbarComponent,

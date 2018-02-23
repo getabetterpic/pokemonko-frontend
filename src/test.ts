@@ -9,6 +9,8 @@ import {
 
 declare const require: any;
 
+import 'hammerjs';
+
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,

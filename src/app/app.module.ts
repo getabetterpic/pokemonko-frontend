@@ -12,8 +12,10 @@ import { ComponentsModule } from './components/components.module';
 import { ServicesModule } from './services/services.module';
 
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 const pkoRoutes: Routes = [
+  { path: 'callback', component: CallbackComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' }
 ];
 

@@ -5,6 +5,14 @@
         <mat-icon>search</mat-icon>
         &nbsp;Search
       </a>
+      <a mat-list-item *ngIf="!auth.isAuthenticated()" (click)="login()">
+        <mat-icon>perm_identity</mat-icon>
+        &nbsp;Login
+      </a>
+      <a mat-list-item *ngIf="auth.isAuthenticated()" (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        &nbsp;Logout
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
