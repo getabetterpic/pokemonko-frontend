@@ -1,15 +1,18 @@
-<form submit="onSubmit($event)">
-  <mat-form-field>
-    <input matInput
-           name="search-term"
-           type="text"
-           placeholder="Search"
-           [(ngModel)]="term" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="search()">Search</button>
-</form>
-<pko-card-list [cards]="cards"
-               [totalCards]="totalCards"
-               [page]="pageAsNumber() - 1"
-               (pageChange)="pageChange($event)">
-</pko-card-list>
+<div class="search-grid">
+  <form submit="onSubmit($event)" class="search-form">
+    <mat-form-field class="search-input">
+      <input matInput
+            name="search-term"
+            type="text"
+            placeholder="Search"
+            [(ngModel)]="term" />
+    </mat-form-field>
+    <button mat-raised-button class="search-button" color="primary" (click)="search()">Search</button>
+  </form>
+  <pko-card-list class="card-list"
+                [cards]="cards"
+                [totalCards]="totalCards"
+                [page]="pageAsNumber() - 1"
+                (pageChange)="pageChange($event)">
+  </pko-card-list>
+</div>

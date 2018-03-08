@@ -1,12 +1,39 @@
-form {
-  margin-top: 12px;
-  min-width: 150px;
-  max-width: 500px;
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-areas: "......... search-form ........."
+                       "card-list  card-list  card-list";
+}
+
+@media (min-size: 960px) {
+  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-areas: "......... search-form ........."
+                       "card-list  card-list  card-list";
+}
+
+.card-list {
+  grid-area: card-list;
+}
+
+.search-form {
+  grid-area: search-form;
+  display: grid;
+  grid-template-columns: 6fr 1fr 6fr;
+  grid-template-areas: "search-input search-input search-input"
+                       "............ search-button search-options";
+}
+
+.search-input {
+  grid-area: search-input;
   width: 100%;
 }
 
-mat-form-field {
-  margin-left: 6px;
-  margin-right: 6px;
+.search-button {
+  grid-area: search-button;
+  justify-content: center;
+}
+
+form {
+  margin-top: 12px;
   width: 100%;
 }
